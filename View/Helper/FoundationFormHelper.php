@@ -1,8 +1,10 @@
 <?php
-
 App::uses('FormHelper', 'View/Helper');
+App::uses('Set', 'Utility');
 
 class FoundationFormHelper extends FormHelper {
+
+	public $helpers = array('Html');
 
 	public function create($model = null, $options = array()) {
 		$options += array('class' => 'nice');
@@ -10,11 +12,15 @@ class FoundationFormHelper extends FormHelper {
 	}
 
 	public function input($fieldName, $options = array()) {
+		
 		$options += $this->_inputDefaults + array(
-			'div' => 'form-field',
-			'class' => 'input-text medium',
-			'error' => array('attributes' => array('wrap' => 'small'))
-		);
+			'div' => 'row row-block',
+			'class' => 'four columns end',
+			'error' => array('attributes' => array('wrap' => 'small')),
+			'label' => array(
+			 	'class' => 'five columns right inline'
+			 	),
+			 );
 
 		if ($options['class'] !== 'input-text') {
 			$options['class'] .=  ' input-text';
@@ -25,6 +31,17 @@ class FoundationFormHelper extends FormHelper {
 		}
 
 		return parent::input($fieldName, $options);
+	}
+	
+	public function submit($caption = NULL, $options = array()) {
+		$options += array(
+			'div' => array(
+				'class' => 'row row-block button-block'
+				),
+			'class' => 'button round'
+			);
+		$button = parent::button($caption, $options);	
+		return $this->Html->div('row row-block button-block', $this->Html->div('twelve columns', $button));
 	}
 
 
