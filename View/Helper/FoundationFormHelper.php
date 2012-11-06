@@ -16,7 +16,7 @@ class FoundationFormHelper extends FormHelper {
 		$options += $this->_inputDefaults + array(
 			'div' => 'row row-block',
 			'class' => 'four columns end',
-			'error' => array('attributes' => array('wrap' => 'small')),
+			'error' => array('attributes' => array('wrap' => 'small', 'class' => 'error four cloumns offset-by-five')),
 			'label' => array(
 			 	'class' => 'five columns right inline'
 			 	),
