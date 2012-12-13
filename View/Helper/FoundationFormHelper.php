@@ -16,7 +16,7 @@ class FoundationFormHelper extends FormHelper {
 		$options += $this->_inputDefaults + array(
 			'div' => 'row row-block',
 			'class' => 'four columns end',
-			'error' => array('attributes' => array('wrap' => 'small', 'class' => 'error four cloumns offset-by-five')),
+			'error' => array('attributes' => array('wrap' => 'small', 'class' => 'error four columns offset-by-five')),
 			'label' => array(
 			 	'class' => 'five columns right inline'
 			 	),
@@ -29,7 +29,10 @@ class FoundationFormHelper extends FormHelper {
 		if (!empty($options['error']) && empty($options['error']['attributes']['wrap'])) {	
 			$options['error']['attributes']['wrap'] = 'small';
 		}
-
+		if (isset($options['image_path'])) {
+			$options['between'] = '<img src="' . $options['image_path'] . '" width="100px">';			
+		}
+		
 		return parent::input($fieldName, $options);
 	}
 	
