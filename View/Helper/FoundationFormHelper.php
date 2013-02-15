@@ -12,15 +12,16 @@ class FoundationFormHelper extends FormHelper {
 	}
 
 	public function input($fieldName, $options = array()) {
+	
+		if(isset($options['label']) && $options['label'] != false){
+			$options['label']['class'] = 'five columns right inline';		
+		}
 		
-		$options += $this->_inputDefaults + array(
+		$options +=  array(
 			'div' => 'row row-block',
 			'class' => 'four columns end',
 			'error' => array('attributes' => array('wrap' => 'small', 'class' => 'error four columns offset-by-five')),
-			'label' => array(
-			 	'class' => 'five columns right inline'
-			 	),
-			 );
+		);
 
 		if ($options['class'] !== 'input-text') {
 			$options['class'] .=  ' input-text';
@@ -89,6 +90,7 @@ class FoundationFormHelper extends FormHelper {
 			}
 
 			if ($name !== null) {
+
 				if (
 					(!$selectedIsArray && !$selectedIsEmpty && (string)$attributes['value'] == (string)$name) ||
 					($selectedIsArray && in_array($name, $attributes['value']))
