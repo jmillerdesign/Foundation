@@ -13,7 +13,10 @@ class FoundationFormHelper extends FormHelper {
 
 	public function input($fieldName, $options = array()) {
 	
-		$options['label']['class'] = 'five columns right inline';	
+		if(isset($options['label']) && $options['label'] == false){
+		}else{
+			$options['label']['class'] = 'five columns right inline';	
+		}
 		
 		$options +=  array(
 			'div' => 'row row-block',
