@@ -4,6 +4,9 @@ App::uses('AppHelper', 'View/Helper');
 
 /**
  * Helper to generate HTML markup complying with ZURB Foundation's section plugin.
+ * This class assumes that you have loaded the foundation.section.js file and
+ * Foundation CSS.
+ * 
  * See Foundation's documentation: http://foundation.zurb.com/docs/components/section.html
  */
 class FoundationSectionHelper extends AppHelper {
