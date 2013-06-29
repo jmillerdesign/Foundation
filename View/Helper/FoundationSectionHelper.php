@@ -44,8 +44,15 @@ class FoundationSectionHelper extends AppHelper {
 	 */
 	public function individualSection($title = 'Title', $content = 'Content', $anchor = '') {
 		$sectionHtml = '';
-		$sectionHtml .= $this->Html->para('title', $this->Html->link($title,
-				array('#' => $anchor)) , array('escape' => FALSE));
+		$sectionHtml .= $this->Html->tag('p', $this->Html->link($title,
+				array(
+						'controller' => $this->request->controller,
+						'action' => $this->request->action,
+						'#' => $anchor)
+				), array(
+						'escape' => FALSE,
+						'class' => 'title'
+				));
 		$sectionHtml .= $this->Html->div('content', $content, array(
 				'escape' => FALSE
 		));
