@@ -20,7 +20,10 @@ class FoundationAlertHelper extends AppHelper {
 	 */
 	public function alert($class = '', $message = '') {
 		$class .= ' alert-box ';
-		$message .= $this->Html->link('&times;', array('#' => '#'), array('escape' => FALSE));
+		$message .= $this->Html->link('&times;', '#', array(
+				'escape' => FALSE, 
+				'class' => 'close'
+		));
 		$alertHtml = $this->Html->div($class, $message, array(
 				'escape' => FALSE,
 				'data-alert' => ''
