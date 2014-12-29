@@ -1,4 +1,8 @@
+.DS_Store
+
 # Ignore Eclipse files
 .buildpath
 .project
 .settings
+
+/vendor/

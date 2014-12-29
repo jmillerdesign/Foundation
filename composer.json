@@ -1,0 +1,33 @@
+{
+    "name": "jmillerdesign/foundation",
+    "type": "cakephp-plugin",
+    "description": "CakePHP helpers for Zurb Foundation CSS framework",
+    "keywords": [
+        "cakephp",
+        "zurb",
+        "foundation"
+    ],
+    "homepage": "https://github.com/jmillerdesign/Foundation/",
+    "authors": [
+        {
+            "name": "J. Miller",
+            "email": "j@jmillerdesign.com"
+        },
+        {
+            "name": "Marc Denning",
+            "email": "marc.denning@gmail.com"
+        },
+        {
+            "name": "José Lorenzo Rodríguez",
+            "email": "jose.zap@gmail.com"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/jmillerdesign/Foundation/issues",
+        "source": "https://github.com/jmillerdesign/Foundation"
+    },
+    "require": {
+        "php": ">=5.3.0",
+        "composer/installers": "*"
+    }
+}
