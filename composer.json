@@ -1,5 +1,6 @@
 {
     "name": "jmillerdesign/foundation",
+    "version": "1.0.1",
     "type": "cakephp-plugin",
     "description": "CakePHP helpers for Zurb Foundation CSS framework",
     "keywords": [

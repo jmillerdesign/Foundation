@@ -1,10 +1,8 @@
 <?php
+
 App::uses('FormHelper', 'View/Helper');
-App::uses('Set', 'Utility');
 
 class FoundationFormHelper extends FormHelper {
-
-	public $helpers = array('Html');
 
 	public function create($model = null, $options = array()) {
 		$options += array('class' => 'nice');
@@ -12,41 +10,21 @@ class FoundationFormHelper extends FormHelper {
 	}
 
 	public function input($fieldName, $options = array()) {
-	
-		if(isset($options['label']) && $options['label'] == false){
-		}else{
-			$options['label']['class'] = 'five columns right inline';	
-		}
-		
-		$options +=  array(
-			'div' => 'row row-block',
-			'class' => 'four columns end',
-			'error' => array('attributes' => array('wrap' => 'small', 'class' => 'error four columns offset-by-five')),
+		$options += $this->_inputDefaults + array(
+			'div' => 'form-field',
+			'class' => 'input-text medium',
+			'error' => array('attributes' => array('wrap' => 'small'))
 		);
 
 		if ($options['class'] !== 'input-text') {
 			$options['class'] .=  ' input-text';
 		}
 
-		if (!empty($options['error']) && empty($options['error']['attributes']['wrap'])) {	
+		if (!empty($options['error']) && empty($options['error']['attributes']['wrap'])) {
 			$options['error']['attributes']['wrap'] = 'small';
 		}
-		if (isset($options['image_path'])) {
-			$options['between'] = '<img src="' . $options['image_path'] . '" width="100px">';			
-		}
-		
+
 		return parent::input($fieldName, $options);
-	}
-	
-	public function submit($caption = NULL, $options = array()) {
-		$options += array(
-			'div' => array(
-				'class' => 'row row-block button-block'
-				),
-			'class' => 'button round'
-			);
-		$button = parent::button($caption, $options);	
-		return $this->Html->div('row row-block button-block', $this->Html->div('twelve columns', $button));
 	}
 
 
@@ -91,7 +69,6 @@ class FoundationFormHelper extends FormHelper {
 			}
 
 			if ($name !== null) {
-
 				if (
 					(!$selectedIsArray && !$selectedIsEmpty && (string)$attributes['value'] == (string)$name) ||
 					($selectedIsArray && in_array($name, $attributes['value']))
